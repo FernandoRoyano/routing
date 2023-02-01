@@ -6,21 +6,28 @@ import Navbar from './components/Navbar';
 import Projectspage from './pages/Projectspage';
 import Projectdetails from './pages/Projectdetails';
 import ErrorPage from './pages/ErrorPage';
+import { ContextProvider } from './context/CartContext';
+
 
 function App() {
+
   return (
     <div className="App">
-      <Navbar/>
+      <ContextProvider>
+      <Navbar />
       <Routes>
         <Route path='/' element={<Homepage/>} />
         <Route path='/about' element={<Aboutpage />} />
         <Route path='/projects' element={<Projectspage />} />
         <Route path='/projects/:projectId' element={<Projectdetails />} />
         <Route path='*' element={<ErrorPage/>} />
-        
-     </Routes>
+        </Routes>
+      </ContextProvider>
     </div>
   );
 }
 
 export default App;
+
+
+

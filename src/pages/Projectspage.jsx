@@ -1,8 +1,22 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import projectsData from '../projects-data.json'
+import axios  from "axios";
 
 const Projectspage = () => {
+
+    const [paises, setPaises] = useState([])
+
+    useEffect(() => {
+        axios
+            .get('https://ih-countries-api.herokuapp.com/countries')
+            .then((response) => response.data)
+            .then((response) => {
+            setPaises(response)
+            })
+        .then()
+        
+    },[])
     
     const [projects, setProjects] = useState([])
     
